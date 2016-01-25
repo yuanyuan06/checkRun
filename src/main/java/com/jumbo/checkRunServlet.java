@@ -42,13 +42,11 @@ public class checkRunServlet extends HttpServlet {
             if(socket.isConnected()){
                 writer.write(host +" "+ host0 + "  run success");
             }else{
-                writer.write(host + " run fail");
-//                throw new HTTPException(404);
+                throw new Exception();
             }
             socket.close();
         }catch (Exception e){
-            writer.write(host + " run fail");
-//            throw new HTTPException(404);
+            throw new ServletException();
         }
         writer.close();
     }
